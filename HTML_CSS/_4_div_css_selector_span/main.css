@@ -1,0 +1,25 @@
+/*디자인에 대한 코드는 main.html에 style을 안써도  main.css파일에서 쓰고 링크만 걸어주면 된다. */
+
+/* margin, border, padding --> android, ios, UI application에서 사용한다.*/
+
+/* div.divclass{
+    background-color: beige;
+} */
+
+/* #을 통해 해쉬태그로 지정 */ 
+div#first {
+    background-color:lime;
+    display: inline-block; /*블록을 붙임*/
+    width: 500px;
+}
+div#second {
+    background-color: cadetblue;
+    display: inline-block;
+    width: 600px;
+}
+
+div#third {
+    background-color: yellow;   
+    display: inline-block;
+    width: 700px;
+}
