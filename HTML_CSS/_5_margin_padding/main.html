@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <style>
+            div#outer {
+                display: inline-block; /* 블록 만큼은 창 옆에 끝까지라고 표현되지만 inline-block을 사용하면 
+                자신의 크기만큼만 보여준다*/
+                background-color:blueviolet;
+                margin: 100px; /* 브라우저 창의 위,옆,아래로 100px만큼 띄워서 창을 생성*/
+                border: 2px solid #ff0000; /*board는 경계선을 말함, solid는 끊김없는 선인 빨간색 선*/
+            } 
+            div#inner{
+                display: inline-block;
+                background-color: aqua;
+                margin: 50px;  /* outer를 기준으로 위,옆,아래로 50px만큼 띄워서 박스를 그림*/
+                /* 즉 자신을 감싸고 있는 박스와의 거리를 말함. */
+                /* margin: 50px 10px; 상하/좌우 순서 */
+                /* margin: 50px 10px 90px; 위 / 좌,우 / 하 순서 */
+                /* margin: 50px 10px 90px 100px; 상, 우, 하, 좌 순 */
+                /*padding: 100px;*/ /* padding은 덧붙인다는 뜻임. 즉 자신의 몸집을 100px을 키운다는 뜻.*/
+                padding: 50px 10px 40px 100px; /* margin과 같은 순서임*/
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="outer">
+            <div id="inner">
+                HELLO
+            </div>
+        </div>
+
+    </body>
+</html>
