@@ -1,0 +1,60 @@
+
+<!-- html(구조,내용), css(디자인), javascript(동적 프로그래밍) -> front end 기술 -->
+<!-- backend(Node.js, SQL) -->
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>여기입니다.</h1>
+        <script>
+            //1. 출력 --> chrome ->개발자 도구 -> consol에 출력
+            //console.log("이것은 자바스크립트입니다."); //세미콜론은 빼도 되는데 치는게 좋다. 어디가 끝인지 알 수 있음.
+            //console.log('이것은 \n자바스크립트입니다. by quotation mark');
+            //console.log(`이것은 자바스크립트입니다. by backtick`); //back-tick, 좌상단, 1번키 좌측 옆에 있는 키
+            //"",''는 같은 기능이지만 back-tick은 엔터를 치면 엔터 공간 그대로 console창에 나타남.
+
+
+            //2. typeof -->자료형 이름
+            //+: string을 연결해서 붙이는 연산자. string concatenation operator
+            //console.log('hello의 자료형은'+typeof("hello")); //string
+            //console.log('4의 자료형은'+typeof(4)); //number
+            //console.log('3.14의 자료형은'+typeof(3.14)); //number
+
+            //console.log('string concat의 문자열 더하기 숫자 결과는'+('123'+5)); //숫자5를 문자열로 바꿔서 연결해줌. 1235가 출력됨.
+            
+            //'123'+5--> 123+5 = 128
+            //문자열을 숫자로 바꿔주는 함수.. parseInt(문자열)->정수
+            //console.log('parseInt의 결과는 : '+ parseInt("123")+5); //1235
+            //console.log('parseInt의 결과2는 : '+ (parseInt("123")+5)); //128
+
+
+            //변수, variable
+            //const : 한 번 대입하면, 변경 불가.
+            //let : 일반 변수 
+            //const a=1;
+            //a=2; //error!
+            /*
+            let b=1;
+            console.log('b의 초기값: '+b);
+            b=2;
+            console.log('b의 변경값: '+b);
+
+            let a=10;
+            let b=20;
+            let c= a+b;
+            const d = a*10;
+            //제곱 
+            const e = 2**3; //2의 3승*/
+
+            
+            const userMsg=prompt(); //사용자로 부터 입력받는 창이 뜨게 만듬.
+            console.log('사용자가 입력한 메시지는 '+userMsg); //debugin 용도
+            document.querySelector('h1').textContent=userMsg //java script입장에서 html의 body의 h1은 document이다. 
+            //그안에서 querySelelctor를 사용해서 h1을 찾는다. h1의 str은 textContent이다.
+            
+        </script>
+    </body>
+</html>
