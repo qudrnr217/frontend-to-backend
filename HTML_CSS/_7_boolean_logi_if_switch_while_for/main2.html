@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id='grade'></h1>
+        
+        <script>
+
+        //undefined, null
+            //let k;
+            //console.log('k is: '+k); //-->undefined 초기화 되지 않았을 때
+
+            //let x = null; //초기화했지만, null값을 넣었음.
+            //console.log('x is: '+x);
+            
+
+        //if
+            // const score = parseInt(prompt());
+            // if (score >=90){
+            //     document.querySelector('h1#grade').textContent='A';
+            // }
+            // else if(score>=80){
+            //     document.querySelector('h1#grade').textContent='B';
+            // }
+            // else{
+            //     document.querySelector('h1#grade').textContent='C';
+            // }
+
+
+        //switch문
+            // switch (score){
+            //     case 100:
+            //         document.querySelector('h1#grade').textContent='완벽';
+            //         break;
+            //     case 90:
+            //         document.querySelector('h1#grade').textContent='충분';
+            //         break;
+            //     default:
+            //         document.querySelector('h1#grade').textContent='나머지';
+            // }
+
+
+            const score = parseInt(prompt());
+            //삼항연산자
+            //50 --> pass, otherwhise -->fail
+            const msg = (score >= 50) ? 'pass' : 'fail' ;
+            document.querySelector('h1#grade').textContent=msg;
+        </script>
+    </body>
+</html>
