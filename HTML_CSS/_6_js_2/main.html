@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1 id='h11'>여기입니다.</h1>
+        <h1 id='h12'>요기일까?</h1>
+        <h1 id='h13'>여기인가?</h1>
+
+        <script>
+            const userMsg=prompt(); //사용자로 부터 입력받는 창이 뜨게 만듬.
+            console.log('사용자가 입력한 메시지는 '+userMsg); //debugin 용도
+
+            //const allh1= document.querySelectorAll('h1');
+            //allh1.forEach((elem,index)=>{elem.textContent=userMsg}); //allh1= h1,h1,h1의 배열이 들어있다고 보면됨, forEach는 배열의 각각(element)를 가져옴
+
+            const userNum=parseInt(userMsg); //사용자가 입력 문자열-->정수
+            let msg="";
+            const result=userNum%2;
+
+            if (result==1)//홀수
+            {
+                msg=userMsg+"는 홀수 입니다."
+            }
+            else //짝수
+            {
+                msg=userMsg+"는 짝수 입니다."
+            }
+            document.querySelector('h1#h11').textContent=msg;
+        </script>
+    </body>
+</html>
