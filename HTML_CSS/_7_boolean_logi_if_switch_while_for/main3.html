@@ -1,0 +1,81 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id='grade'></h1>
+        <script>
+            //for,while
+            // const num = parseInt(prompt());
+            // let msg = '';
+            // let i = 0;
+
+            // while (true){
+            //     msg += 'hello ';
+            //     i +=1;
+            //     if (i>=num){
+            //         break; 
+            //     }
+            // }
+
+            // while(i<num){
+            //     msg += 'hello ';
+            //     i+=1;
+            // }
+            // document.querySelector('h1#grade').textContent = msg
+            
+            // for (let i = 0; i < num; i++)
+            // {
+            //     msg += 'hello ';
+            // }
+            // document.querySelector('h1#grade').textContent = msg
+
+
+            //array
+            // const myArray=[1,2,'apple','banana',3.14,true]; //c언어 배열과 다른점은 여러가지 타입이 들어갈 수 있음.
+            // console.log('myArray length : '+myArray.length); //길이
+            // console.log(myArray);
+
+            //array in array
+            // const myArray = [1, [3.14,true,'banana',10],'apple'];
+            // console.log('myArray length : '+myArray.length); //길이
+            // console.log(myArray);
+
+
+            //배열안의 요소 출력
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // const myArray = [1, [3.14,true,'banana',10],'apple'];
+            // for (let i=0;i<myArray[1].length;i++){
+            //     console.log(myArray[1][i]);
+            // }
+
+
+            //js 배열의 크기변환 ok, but c is not ok!
+            //지우기, pop()은 뒤에서,
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // console.log('before: '+myArray);
+            // const value = myArray.pop();
+            // console.log('pop : '+value);
+            // console.log('after: '+myArray);
+
+            // shift() 는 앞에서
+            // const myArray=[1,2,'apple','banana',3.14,true];
+            // console.log('before: '+myArray);
+            // const value = myArray.shift();
+            // console.log('shift : '+value);
+            // console.log('after: '+myArray);
+
+            //추가하기, push() 뒤에서 추가, unshift() 앞에서 추가
+            const myArray=[1,2,'apple','banana',3.14,true];
+            // console.log('before: '+myArray);
+            // myArray.push('orange');
+            // console.log('after: '+myArray);
+
+            console.log('before: '+myArray);
+            myArray.unshift('orange');
+            console.log('after: '+myArray);
+
+        </script>
+
+    </body>
+</html>
