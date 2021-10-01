@@ -1,0 +1,37 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id='grade'></h1>
+        <script>
+            //function parameter --> 함수 선언
+            //function argument -->함수 호출
+
+            //함수(function)
+            //1
+            function sayHello(){ 
+                console.log('안녕하세요');
+            }
+
+            function sayHelloWithParameter(name){  //parameter
+                console.log(name+'씨 안녕하세요');
+            }
+
+            //2. arrow function
+            const k = () => {console.log('안녕하세요2')};
+            const k2 = (name) => {console.log(name+'씨 안녕하세요2')};
+            
+            //3. 
+            const v = function() {console.log('안녕하세요3')};
+            const v2 = function(name) {console.log(name+'씨 안녕하세요3')}
+            //호출
+            sayHello();
+            sayHelloWithParameter('찰스'); //argument
+            k();
+            k2('철수');
+            v();
+            v2('영수');
+        </script>
+    </body>
+</html>
