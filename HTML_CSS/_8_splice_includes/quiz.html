@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id='grade'></h1>
+        <script>
+            const myArray = [1,2,'apple','banana',3.14,'apple',true,false,2,'apple'];
+            //console.log(myArray)
+            //1.배열에 포함된 모든 사과를 제거하시오.
+            /*
+            while (true){
+                //1. indexOf('apple')
+                let _idx=myArray.indexOf('apple')
+                //탈출 조건
+                if (_idx<0){
+                    break;
+                }
+                //2. 찾은apple 지우기
+                myArray.splice(_idx,1);
+                
+            }
+            console.log("without apple: "+myArray);
+            */
+            //2. 배열에 포함된 사과는 몇 개?
+            /*
+            let cnt=0; //apple 개수
+            let _idx=0;
+            while (true){
+                _idx = myArray.indexOf('apple',_idx);
+
+                if(_idx<0){
+                    break;
+                }
+                cnt+=1;
+                //중요! 
+                _idx+=1; //다음 사과를 찾는 것은, 마지막 찾은 위치 다음이다.
+            }
+            console.log('사과 개수는: '+cnt);
+            */
+
+            //for문으로 풀기
+            let cnt=0;
+            for (let i=0;i<myArray.length;i++){
+                if (myArray[i]=='apple'){
+                    cnt+=1;
+                }
+            }
+        </script>
+    </body>
+</html>
