@@ -1,0 +1,38 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id='grade'></h1>
+        <script>
+            //1.
+            function sayHello(){ 
+                console.log('안녕하세요');
+                return ['바이!', 10, false];
+            }
+
+            //return 값
+            const res=sayHello();
+            console.log('sayHello의 반환값: '+res[2]);
+
+            //2. arrow function함수는 undefined를 return 해줌.
+            const k = () => {console.log('안녕하세요')};
+            const k2 = (name) => console.log(name+"씨, 안녕하세요?");
+
+            //parameter vs arguments
+            // function sayHelloWithParameter(name,age){  //parameter
+            //     console.log(age+'살 '+ name+'씨 안녕하세요');
+            // }
+            // sayHelloWithParameter('찰스',20);
+            
+
+            //배열로 parameter를 만듬.
+            function sayHelloWithParameter(values){  //parameter
+                console.log(values[1]+'살 '+ values[0]+'씨 안녕하세요');
+            }
+
+            
+            sayHelloWithParameter(['찰스',20]);
+        </script>
+    </body>
+</html>
