@@ -1,0 +1,43 @@
+<html>
+    <head></head>
+    <body>
+        <h1 id='grade'></h1>
+        <script>
+            //Literal ---> 값 자체
+            //1, 2, 3 Integer literal
+            //3.14 Floating point number literal
+            //'hello' string literal
+            //object literal : 배열의 index 0,1,2 대신에 내가원하는 명을 지정할 수 있다.
+            
+            const showOL = (ol) => {
+                const keys = Object.keys(ol)
+                keys.forEach((elem, idx) => {
+                    console.log(elem+ '----> '+ol[elem])}); //forEach: 키에대한 각각에 대한 할 일 지정(arrow function으로 함수로 할 일을 만들어줌)
+                    //elem = name, age   idx= 0,1
+            };
+
+            const showOL2 = (ol) => {
+                const keys = Object.keys(ol)
+                for(let i=0;i<keys.length;i++){
+                    console.log(keys[i]+ '====>'+ol[keys[i]]);
+                }
+            };
+
+
+            //const person =['찰스', 20]; ---> array
+            const person = {name:'찰스', age:20}; // object literal
+
+            showOL(person);
+            showOL2(person);
+            // console.log('keys: '+Object.keys(person))
+            // console.log(Object.values(person))
+
+            //출력 방법2가지
+            // console.log('person name: '+person.name);
+            // console.log('person name: '+person['name']);
+
+            // person.age= 35;
+            // console.log('person age: '+person.age)
+        </script>
+    </body>
+</html>
