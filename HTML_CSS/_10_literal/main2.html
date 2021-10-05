@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            const person = {name:'찰스',age:20}
+
+            //fucntion --->method
+            //method 추가
+            person.sayHello = () => {console.log('Hello')} //sayHello는 method가 되는것임.
+            person.sayHello();
+            
+            person.sayHello2 = (v) => {console.log(v+"! Hi!")}
+            person.sayHello2('철수')
+            
+            person.areYouOlderThan = (_age) => {
+                if (person.age > _age){
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
+            const check_age=30
+            console.log("are you Older than "+check_age+'? '+person.areYouOlderThan(check_age))
+
+            //object literal에서 method를 만드는 것보다 class를 만들어 객체를 만들어 사용하는것이
+            //더 좋음. 따라서 object literal에서 method는 잘 사용하지 않는다.
+
+            //object literal안에 또 object literal
+            const a = {
+                name:'찰스',
+                detail: {
+                    name:'톰',
+                    age:10
+                }
+            }
+            console.log('----->'+a.detail.name)
+        </script>
+    </body>
+</html>
