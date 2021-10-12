@@ -1,0 +1,45 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            //문자열 정렬
+            const d = ['banana','apple','orange']
+            const f = ['호박','수박','사과','포도']
+            const sd = d.slice().sort((a,b)=>{
+                if (a<b){
+                    return -1
+                }
+                else if(a>b){
+                    return 1
+                }
+                else{
+                    return 0
+                }
+            })
+            // const sd2=d.slice().sort((a,b)=>{return (a<b)?-1:(a>b)?1:0})
+            const sd2=d.slice().sort((a,b)=>(a<b)?-1:(a>b)?1:0) //{}를 넣으면 return을 해줘야 출력하지만 ()만하면 return을하지않아도 된다.
+            const sf = f.slice().sort((a,b)=>(a<b)?-1:(a<b)?1:0)
+            
+            //localCompare - 문자열을 sort하는데 가장 권장하는 방법 (한글과 영어가 섞여있다면 정렬된 한글,영어순으로 나온다.)
+            const sf2 = f.slice().sort((a,b)=>a.localeCompare(b))
+
+            console.log('d: '+d)
+            console.log('sd : '+sd)
+            console.log('sd2: '+sd2)
+            console.log('f: '+f)
+            console.log('sf: '+sf)
+            console.log('sf2: '+sf2)
+
+            //localCompare - 지역의 언어를 우선시하여 먼저 나옴 ex) 한글,영어를 sort하면 한글이 먼저 나옴
+            const a = ['abc','Abc','포도','zac','Zac']
+            const sa = a.slice().sort((a,b)=>(a<b)?-1:(a>b)?1:0) //대소문자 구분o
+            const sa1= a.slice().sort((a,b)=>a.localeCompare(b,{'sensitivity':'base'})) //key(sensitivity):value(base)형식임. base는 대소문자 구분x
+            const sa2= a.slice().sort((a,b)=>a.localeCompare(b))
+            console.log('a: '+a)
+            console.log('sa: '+sa)
+            console.log('sa1: '+sa1)
+            console.log('sa2: ',sa2)
+            
+        </script>
+    </body>
+</html>
