@@ -1,0 +1,34 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //array
+            const a= [1,2,3]
+            const b = a //reference
+            const c =[...a] //copy
+            
+            //object : key, value
+            const d = {
+                name:'john',
+                age:20,
+                address : { //object type
+                    city: 'incheon',
+                    street: 10
+                }
+            }
+            console.log('d : ',d.name, d['age'], d.address.city ,d.address.street)
+
+            const e = Object.assign({},d) //copy , shallow copy
+            e.name ='alice'
+            e.address.city='seoul'
+            console.log('after -----------------')
+            console.log('d : ',d.name, d['age'],d.address.city,d.address.street)
+            console.log('e : ',e.name, e['age'],e.address.city,e.address.street)
+            //object type은 reference가 됨.
+            //name과 age는 copy지만 address같은경우는 reference로 복사를 한다.
+            //이런 방식을 shallow copy라고한다. 얕은 복사.
+        </script>
+    </body>
+</html>
