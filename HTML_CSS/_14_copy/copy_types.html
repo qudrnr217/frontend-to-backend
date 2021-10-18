@@ -1,0 +1,44 @@
+<!-- Copy (복사)
+
+1. Shallow Copy
+2. Deep Copy
+
+Reference (참조) -->
+
+<html>
+    <head></head>
+    <body>
+        <script>
+            //copy
+            let a = 1
+            let b = a //reference가아닌 copy 공간을 copy한다.
+            b = 10
+    
+            console.log(`a is ${a}`)
+            console.log(`b is ${b}`)
+
+            //object : key, value
+            const c= {'name':'alice', 'age':20} 
+            const d = c //reference c언어로 치면 포인터처럼 공간을 가리킴
+            //const인데 object에서 바꿔도 되는이유 가리키는 공간을 바꾸지 않았기 때문이다.
+            //ex const f를 만들어 d=f로 바꾸면 d는 원래 c를 가리켰는데 f로 바꾸는 것은 공간을 바꾸기때문에
+            //error!
+            console.log('before ',c) 
+            d.name = 'tom' // === b['name']
+            console.log('after ',c)
+
+
+            //배열로 해보자
+            const f = [1,2,3]
+            const g = f //배열도 reference이다.
+            console.log('before f ',f)
+            g[1]=200
+            console.log('after f ',f)
+            f.forEach((v,idx)=>{
+                console.log(`${idx} : ${v}`)
+            })
+            
+        </script>
+    </body>
+    
+</html>
