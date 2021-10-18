@@ -1,0 +1,68 @@
+<!-- event 처리 -> 프론트엔드 -->
+<!-- capture phase - ex)운동 input을 클릭했을 경우 div 0,1을 타고 들어간다 이것을 capture phase라고한다. -->
+<!-- 쇼핑 input을 클릭했을 경우 div 0,2 순으로 타고들어간다. -->
+<!-- input 운동을 클릭했을 때 운동 input은 target phase라고한다. -->
+<!-- target phase를 찾았을 때 역방향으로 다시 돌아간다. div1 -> div0순으로 이것을 bubble phase라고한다. -->
+<!-- event는 bubble phase가 되어 돌아갈 때 역방향 순서대로 div1에서 먼저 호출되고 div0가 호출된다. -->
+<!-- 결론적으로 capture -> target -> bubble 순이다. 이 순서대로 흘러가는 과정을 propagation이라고함.-->
+
+<html> 
+    <head>
+
+    </head>
+    <body>
+        <div> <!-- 0 -->
+            <div><!-- 1 -->
+                <input type="checkbox">
+                <label for="">운동</label>
+            </div>
+            <div><!-- 2 -->
+                <input type="checkbox">
+                <label for="">쇼핑</label>
+            </div>
+        </div>
+
+        <script>
+
+            
+
+
+            const inputs = document.querySelectorAll('input')
+            inputs.forEach((_ip,_idx)=>{
+                //bubble phase에 수행되는 listener
+                _ip.addEventListener('click',(event)=>{
+                    console.log(_idx+'bubble phase: input click event 발생')
+                    //event.stopPropagation() //bubble phase가 자신의 level은 전달되고 위로 전달이 안됨.
+                    event.stopImmediatePropagation() //자신의 level의 옆으로 넘어가는것도 stop해줌.
+                    //밑에있는 두번째 bubble phase로 넘어가지 않음.
+                }) 
+
+                //capture phase에 수행되는 listener
+                _ip.addEventListener('click',()=>{
+                    console.log(_idx+'capture phase: input click event 발생')
+                },true) //default는 false이다. false= bubble phase 
+            })
+
+        
+                inputs.forEach((_ip,_idx)=>{
+                _ip.addEventListener('click',()=>{
+                    console.log(_idx+'두번째 bubble phase event 발생')
+                })
+            })
+
+
+            // div에 대한 event listener설정.
+            const divs = document.querySelectorAll('div')
+            divs.forEach((_dv,_idx)=>{
+                _dv.addEventListener('click',()=>{
+                    console.log(_idx+'bubble phase: div에 대한 event 발생')
+                })
+
+                _dv.addEventListener('click',()=>{
+                    console.log(_idx+'capture phase: div에 대한 event 발생')
+                },true)
+            })
+            
+        </script>
+    </body>
+</html>

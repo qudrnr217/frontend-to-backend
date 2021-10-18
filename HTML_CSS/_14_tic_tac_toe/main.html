@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse; /* <-> separate */
+            }
+            td{
+                width: 50px;
+                height: 50;
+                border: 3px solid black;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 수동으로 테이블을 만들 때 -->
+        <!--
+        <table> 
+            <tr><td></td><td></td><td></td></tr> tr은 한 행 td는 한 행안에 사각형하나
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+        </table>
+        <div id='result'>결과표시</div> -->
+                       
+        <!-- js에서는 테이블을 자동으로 만드는 방법이 있다. -->
+
+
+        <script>
+            const cp_table=document.createElement('table')
+            const cp_result = document.createElement('div')
+            let mark = 'O'
+            let cnt=0
+
+            //_td 위치를 기준으로 승패를 판단
+            const checkWin = (_td)=>{
+                let rowIndex = _td.parentNode.rowIndex //parentNode = tr
+                let colIndex = _td.cellIndex 
+
+                //가로 검사
+                if (board[rowIndex][0].textContent=== mark &&
+                    board[rowIndex][1].textContent=== mark &&
+                    board[rowIndex][2].textContent=== mark){
+                        return true
+                    }
+
+                //세로 검사
+                if (board[0][colIndex].textContent=== mark &&
+                    board[1][colIndex].textContent=== mark &&
+                    board[2][colIndex].textContent=== mark){
+                        return true
+                }
+
+                //대각선 검사, back-slash
+                if (board[0][0].textContent===mark &&
+                    board[1][1].textContent===mark &&
+                    board[2][2].textContent===mark){
+                        return true
+                    }
+                
+                //대각선 검사, slash
+                if (board[0][2].textContent===mark &&
+                    board[1][1].textContent===mark &&
+                    board[2][0].textContent===mark){
+                        return true
+                }
+
+                return false
+
+
+            }
+
+
+            const table_event_listener = (event)=>{
+                const which_td = event.target.closest('td')
+                if (which_td.textContent !== ''){
+                    return
+                }
+                which_td.textContent = mark
+                cnt=cnt+1
+                if(checkWin(which_td)===true){
+                    cp_result.textContent = mark +'가 이겼습니다.'
+                    cp_table.removeEventListener('click',table_event_listener)
+                    return
+                }
+
+                //모든 칸이 채워졌는가?
+                //무승부라고 출력, removeEventlistener
+                if(board.flat().every((_td)=> _td.textContent !=='')===true){//flat은 보드를 1차원배열로 만들어줌 every는 각각 모두다 
+                    //이방법은 오버로드가 커지기 때문에 밑에 cnt로하는 것이 더 좋다고 하심.
+                    cp_result.textContent='무승부 입니다.'
+                    cp_table.removeEventListener('click',table_event_listener)
+                    return
+                } 
+                /*
+                if (cnt ===9){
+                    cp_result.textContent='무승부 입니다.'
+                    cp_table.removeEventListener('click',table_event_listener)
+                }
+                */  
+
+                mark=(mark === 'O')?'X':'O'
+
+                
+                
+            }
+
+
+            //td들을 저장하기 위한 별도의 2차원 배열
+            const board = []
+
+
+            for (let i=0;i<3;i++){ //tr
+                const cp_tr=document.createElement('tr')
+                const t_row =[]
+                for(let j=0;j<3;j++){//td
+                    const cp_td=document.createElement('td')
+                    cp_tr.append(cp_td)
+                    t_row.push(cp_td)
+                }
+                cp_table.append(cp_tr)
+                board.push(t_row)
+            }
+
+            document.body.append(cp_table)
+            document.body.append(cp_result)
+
+
+            cp_table.addEventListener('click',table_event_listener)
+        </script>
+    </body>
+</html>
