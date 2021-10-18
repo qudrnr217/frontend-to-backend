@@ -1,0 +1,43 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+
+            const a = {
+                name:'john',
+                age:20,
+                address : { //object type
+                    city: 'incheon',
+                    street: 10
+                }
+            }
+
+            const b = JSON.parse(JSON.stringify(a)) //deep copy
+            //네트워크상으로 다른 컴퓨터로 보내고 싶을 때 전부다 문자열로 바꿔서 전송해주는것이
+            //JSON역할
+            //1. stringify - 문자열로 쭉 풀어 쓰는 것 풀어서 보냄 상대편으로 2.parse - 풀어쓴 문자열을 원래대로 만듬
+            //ex) stringify - 김밥을 김,단무지, 밥 등으로 나눔 passe - 다시 김밥으로 뭉침
+            b.name ='alice'
+            b.address.city='seoul'
+            console.log('after -----------------')
+            console.log('a : ',a.name, a['age'],a.address.city,a.address.street)
+            console.log('b : ',b.name, b['age'],b.address.city,b.address.street)
+
+
+            const c=['alice',20,{city:'incheon',street:10}]
+            const e = JSON.parse(JSON.stringify(c))
+            const d=[...c] //shallow copy
+            d[0]='john'
+            d[1]=20000
+            d[2].city='seoul'
+            d[2].street=555
+            console.log('before---------------')
+            console.log(c[0],c[1],c[2].city,c[2].street)
+            console.log('after---------------')
+            console.log(c[0],c[1],c[2].city,c[2].street)
+            console.log(d[0],d[1],d[2].city,d[2].streett)
+            console.log('deepcopy---------------')
+            console.log(e[0],e[1],e[2].city,e[2].street)
+        </script>
+    </body>
+</html>
