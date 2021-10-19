@@ -1,0 +1,79 @@
+<head>
+    <body>
+        <script>
+            //object
+            const o ={
+                name: 'tom',
+                age : 20
+            }
+            
+            const j ={
+                name: 'jain',
+                age : 21
+            }
+            
+            // console.log(o)
+            // console.log(j)
+
+            //class : create object , 정보와 processing을 한번에 처리
+            'use strict' //잘못된 것을 엄격하게 지적해줘!
+            
+            class Person{//클래스는 첫번째를 대문자로 시작해준다. 여러언어의 하나의 관습이다.
+                constructor(_name,_age) { //헷갈리기 때문에 함수에서 받아오는 argument는 _를 붙여주는게 트렌드이다.
+                    this.name = _name
+                    this.age = _age
+                }
+
+                show_info(){
+                    console.log(`${this.name} is ${this.age} yrs old. He(She) lives in ${this.city}`)
+                }
+
+                is_older_than(value) {
+                    if (this.age >= value){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                }
+
+                add_city_info(_city){
+                    this.city = _city //새로운 attribute생성, 유연성이 좋다. but 가독성의 문제가 있다.
+                }
+
+                
+            } 
+
+            class Student extends Person{ //상속(inheritance) java와 같음
+                constructor(_name,_age,_dream){
+                    super(_name,_age)
+                    this.dream = _dream
+                }
+
+                show_info(){ //overriding : 부모의 method와 자식의 method의 이름이 같지만 자식것이 호출됨.
+                    super.show_info()
+                    console.log(`his(her) dream is ${this.dream}`)
+                }
+            }
+
+
+            const s = new Student('Tom',19,'pilot')
+            s.add_city_info('incheon')
+            s.show_info()
+
+
+            // const p = new Person('jim',20)
+            // const q = new Person('jain',21)
+
+            // console.log(p)
+            // console.log(q)
+            // p.add_city_info('seoul')
+            // q.add_city_info('yeongju')
+            // p.show_info()
+            // q.show_info()
+            // console.log(p.is_older_than(50))
+            // console.log(q.is_older_than(10))
+            
+        </script>
+    </body>
+</head>
