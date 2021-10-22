@@ -28,18 +28,44 @@
 //     console.log(`fetchUser result: ${v}`)
 // })
 
+function B(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log('B가 실행됨')
+            resolve(45)
+        },3000)
+    })
+}
 
 //syntactoc sugar 위에 코드를 
-async function fetchUser(){ //async만 붙이면 promise를 반환함. return은 resolve 역할
+async function fetchUser(a){ //async만 붙이면 promise를 반환함. return은 resolve 역할
     console.log('promise 실행') //원래 실행해야하는 부분
-    return '실행끝'  //resovle에 해당하는 부분 
+    // return '실행끝'  //resovle에 해당하는 부분 
+    
+    const k = await B() //await는 async 함수 내에서만 , 다른 promise의 종료를 기다릴 때 사용
+
+    if (k>=0){
+        return '실험끝' //resolve
+    }
+    else{
+        throw new Error('음수') //reject
+    }
+    
     
 }
 
 
 //--아래는 변하지않음.
-const a = fetchUser()
+const a = fetchUser(-1)
 
 a.then((v)=>{
     console.log(`fetchUser result: ${v}`)
+})
+.catch((error)=>{
+    console.log(`에러발생 ${error}`)
+})
+.finally(()=>{
+    //resolve, reject에 상관없이 promise가 종료되면서 공통적으로
+    //실행되야하는 부분
+    console.log(`promise 끝 from finally`)
 })
