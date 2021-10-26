@@ -6,6 +6,8 @@ const app = express()
 //pages경로로 들어오는 요청에대해서는
 //local 폴더 __dirname : main.js 가 있는 위치
 //__dirname + '/pages'
+//ex) working.html에서 script에 있는 js파일을 불러올 때 사용. 만약 use를 사용하지 않는다면
+//오류가 생기게됨.
 app.use('/script',express.static(__dirname+'/script')) 
 
 
